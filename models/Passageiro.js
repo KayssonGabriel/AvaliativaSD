@@ -1,19 +1,14 @@
 import mongoose from 'mongoose';
-import validator from 'validator';
 
 const passageiroSchema = new mongoose.Schema({
-  nome: String,
-  cpf: {
-    type: String,
-    unique: true,
-    validate: (value) => validator.isLength(value, { min: 11, max: 11 })
-  },
-  vooId: { type: mongoose.Schema.Types.ObjectId, ref: 'Voo' },
+  nome: { type: String, required: true, trim: true },
+  cpf: { type: String, required: true, unique: true, trim: true },
+  vooId: { type: mongoose.Schema.Types.ObjectId, ref: 'Voo', required: true },
   statusCheckin: {
     type: String,
     enum: ['pendente', 'realizado'],
     default: 'pendente'
   }
-});
+}, { timestamps: true });
 
 export default mongoose.model('Passageiro', passageiroSchema);

@@ -1,13 +1,10 @@
-export const validarPortao = (portao) => {
+export const validarPortao = ({ codigo, disponivel }) => {
   const erros = [];
-
-  if (!portao.codigo || typeof portao.codigo !== 'string' || portao.codigo.trim().length === 0) {
+  if (!codigo || typeof codigo !== 'string' || !codigo.trim()) {
     erros.push('Código do portão é obrigatório e deve ser uma string não vazia.');
   }
-
-  if (portao.disponivel !== undefined && typeof portao.disponivel !== 'boolean') {
+  if (disponivel !== undefined && typeof disponivel !== 'boolean') {
     erros.push('Disponível deve ser um valor booleano.');
   }
-
   return erros;
 };

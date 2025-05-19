@@ -1,19 +1,16 @@
 import validator from 'validator';
 
-export const validarPassageiro = (passageiro) => {
+export const validarPassageiro = ({ nome, cpf, vooId }) => {
   const erros = [];
 
-  if (!passageiro.nome || typeof passageiro.nome !== 'string' || passageiro.nome.trim().length === 0) {
+  if (!nome || typeof nome !== 'string' || !nome.trim()) {
     erros.push('Nome é obrigatório e deve ser uma string não vazia.');
   }
-
-  if (!passageiro.cpf || !validator.isLength(passageiro.cpf, { min: 11, max: 11 }) || !validator.isNumeric(passageiro.cpf)) {
+  if (!cpf || !validator.isLength(cpf, { min: 11, max: 11 }) || !validator.isNumeric(cpf)) {
     erros.push('CPF deve ter 11 dígitos numéricos.');
   }
-
-  if (!passageiro.vooId || typeof passageiro.vooId !== 'string') {
+  if (!vooId || typeof vooId !== 'string') {
     erros.push('vooId é obrigatório e deve ser uma string.');
   }
-
   return erros;
 };

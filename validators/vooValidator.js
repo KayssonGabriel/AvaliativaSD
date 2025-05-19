@@ -1,25 +1,19 @@
-export const validarVoo = (voo) => {
+export const validarVoo = ({ numeroVoo, origem, destino, dataHoraPartida, portaoId }) => {
   const erros = [];
-
-  if (!voo.numeroVoo || typeof voo.numeroVoo !== 'string' || voo.numeroVoo.trim().length === 0) {
+  if (!numeroVoo || typeof numeroVoo !== 'string' || !numeroVoo.trim()) {
     erros.push('Número do voo é obrigatório e deve ser uma string não vazia.');
   }
-
-  if (!voo.origem || typeof voo.origem !== 'string' || voo.origem.trim().length === 0) {
+  if (!origem || typeof origem !== 'string' || !origem.trim()) {
     erros.push('Origem é obrigatória e deve ser uma string não vazia.');
   }
-
-  if (!voo.destino || typeof voo.destino !== 'string' || voo.destino.trim().length === 0) {
+  if (!destino || typeof destino !== 'string' || !destino.trim()) {
     erros.push('Destino é obrigatório e deve ser uma string não vazia.');
   }
-
-  if (!voo.dataHoraPartida || isNaN(Date.parse(voo.dataHoraPartida))) {
+  if (!dataHoraPartida || isNaN(Date.parse(dataHoraPartida))) {
     erros.push('Data e hora de partida são obrigatórias e devem ser uma data válida.');
   }
-
-  if (!voo.portaoId || typeof voo.portaoId !== 'string') {
+  if (!portaoId || typeof portaoId !== 'string') {
     erros.push('portaoId é obrigatório e deve ser uma string.');
   }
-
   return erros;
 };
