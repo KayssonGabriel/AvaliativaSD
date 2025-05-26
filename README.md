@@ -37,4 +37,6 @@ A API escuta na porta `3000` por padrão e recebe corpos JSON. Use `POST /auth/r
 
 ## Enunciado
 
+![Avaliativa](https://github.com/user-attachments/assets/b7b96671-df20-47c6-9c6a-465610f9c0ff)
+
 [Imagem da avaliação](descri%C3%A7%C3%A3o%20da%20avaliativa/Avaliativa.jpg).
