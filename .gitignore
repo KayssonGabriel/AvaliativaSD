@@ -1,0 +1,26 @@
+# Variáveis de ambiente
+.env
+
+# Módulos de dependência
+node_modules/
+
+# Logs e arquivos de depuração
+npm-debug.log*
+yarn-debug.log*
+*.log
+
+# Arquivos de configurações de IDEs
+.vscode/        # Para VS Code
+.idea/          # Para WebStorm/IntelliJ
+
+# Resultados de testes (se houver)
+/coverage/
+
+# Arquivos de build (se você tiver um processo de build/transpilação)
+/dist/
+/build/
+
+# Outros arquivos temporários ou de sistema operacional
+.DS_Store       # macOS
+Thumbs.db       # Windows
+ehthumbs.db     # Windows
