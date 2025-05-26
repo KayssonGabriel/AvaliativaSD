@@ -1,4 +1,5 @@
 import Portao from '../models/Portao.js';
+import Voo from '../models/Voo.js';
 import { validarPortao } from '../validators/portaoValidator.js';
 
 export const criarPortao = async (req, res) => {
@@ -41,6 +42,9 @@ export const atualizarPortao = async (req, res) => {
 export const excluirPortao = async (req, res) => {
   const { id } = req.params;
   try {
+    if (await Voo.exists({ portaoId: id })) {
+      return res.status(409).json({ erro: 'Portão associado a um voo.' });
+    }
     const p = await Portao.findByIdAndDelete(id);
     if (!p) return res.status(404).json({ erro: 'Portão não encontrado.' });
     res.json({ mensagem: 'Portão excluído com sucesso.' });

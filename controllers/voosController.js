@@ -42,8 +42,10 @@ export const atualizarVoo = async (req, res) => {
       if (!novo || !novo.disponivel) {
         return res.status(400).json({ erro: 'Portão indisponível ou inexistente.' });
       }
-      voo.portaoId.disponivel = true;
-      await voo.portaoId.save();
+      if (voo.portaoId) {
+        voo.portaoId.disponivel = true;
+        await voo.portaoId.save();
+      }
       novo.disponivel = false;
       await novo.save();
       voo.portaoId = portaoId;
